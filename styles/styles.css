@@ -1,0 +1,171 @@
+
+/*
+body{
+    margin: 0;
+    margin-left: 50;
+}
+
+*/
+
+html {
+    font-family: Pussycat, Algerian, Broadway, fantasy;
+    background-color: #FAE96F;
+}
+
+
+header h1 {
+    font-family: Pussycat, Algerian, Broadway, fantasy;
+    text-align: center;
+}
+h1 {
+}
+
+ul {
+    list-style: none;
+    text-align: center;
+}
+
+li {
+    display: inline;
+    padding-right: 40px;
+}
+
+li a:link {
+    text-decoration: none;
+    color: black;
+}
+
+
+li a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+
+li a:hover {
+    text-decoration: none;
+    background-color: #dfdce3;
+    color: #f78733;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+
+li a:active {
+    text-decoration: none;
+    color: black;
+}
+
+main aside img{
+    margin-right: 10px;
+    float: right;
+    width: 700px;
+}
+
+main {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+nav {
+    margin: 10px;
+    padding: 5px;
+    height: 70px;
+    background-color: #DF8D03;
+    border-radius: 10px;
+}
+
+nav ul{
+    height: 100%;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+nav ul li a {
+}
+
+/*
+     nav ul li a {
+                display: inline-block;
+                height: 100%;
+                width: 100%;
+                text-decoration: none;
+                line-height: 2.916em;
+                border-radius: 10px;
+                }
+*/
+
+#game {
+    margin-top: 0px;
+    margin-left: 470px;
+    width: 550px;
+    height: 350px;
+    border: 1px solid black;
+    background-color: sandybrown;
+}
+/* mozda je ljepse ako maknem background-color*/
+
+
+@keyframes move-left {
+    100% {
+        transform: translateX(-20px);
+    }
+}
+
+@keyframes move-right {
+    100% {
+        transform: translateX(20px);
+    }
+}
+
+.move-left {
+    animation: move-left 100ms;
+}
+
+.move-right {
+    animation: move-right 500ms;
+}
+
+#beer-score {
+    height: 40px;
+    width: 100px;
+}
+
+#beer-missed-score{
+    height: 40px;
+    width: 100px;
+}
+
+#beers-catched{
+    text-align: center;
+}
+
+#beers-missed {
+    margin-top: -30px;
+    text-align: center;
+}
+
+/*animation: fall 2s linear infinite;*/
+/*
+@keyframes fall {
+    70% { transform: translateY(310px);}
+    100% {transform: translateY(350px);}
+}
+*/
+
+
+#start-button{
+    margin-left: 695px;
+    margin-top: 20px;
+    height: 40px;
+    width: 100px;
+    border: 1px solid black;
+}
+
+#start-button h2{
+    margin-top: 5px;
+    margin-left: 12px;
+    margin-left: 12px;
+}
