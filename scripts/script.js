@@ -33,16 +33,18 @@ function startGame() {
 
     function drawGameOverMessage() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.font = "100px Algerian";
-        ctx.fillText("Game Over", 100, 100, 100);
+        ctx.font = "30px Algerian";
+        ctx.fillText("Game Over", 100, 85, 100);
     }
 
     function isGameOver() {
         if (beer_missed_counter == 3) {
+            writeResult();
             beer_missed_counter = 0;
             beer_catched_counter = 0;
             drawGameOverMessage();
-            setTimeout(window.location.reload(), 3000000);
+            setTimeout()
+            setTimeout(window.location.reload, 3000);
         }
     }
 
