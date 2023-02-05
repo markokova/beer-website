@@ -1,10 +1,20 @@
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
+
 const scoreCanvas = document.getElementById("beer-score");
 const ctxScore = scoreCanvas.getContext("2d");
-const missedCanvas = document.getElementById("beer-missed-score");
-const ctxMissed = missedCanvas.getContext("2d");
 
+const lastLife = document.getElementById("last-life");
+const ctxLastLife = lastLife.getContext("2d");
+
+const secondLife = document.getElementById("second-life");
+const ctxSecondLife = secondLife.getContext("2d");
+
+const firstLife = document.getElementById("first-life");
+const ctxFirstLife = firstLife.getContext("2d");
+/*
+ pozvat funkciju za crtat pivo i nacrtat 3 piva kao tri zivota i onda kada se pivo promasi samo ctxFirstLife.clearRect()..
+ */
 document.querySelector('#start-button').addEventListener('click', startGame);
 
 /*
@@ -40,15 +50,32 @@ function startGame() {
     function isGameOver() {
         if (beer_missed_counter == 3) {
             writeResult();
+            ctxLastLife.clearRect(0, 0, lastLife.width, lastLife.height);
             beer_missed_counter = 0;
             beer_catched_counter = 0;
             drawGameOverMessage();
-            setTimeout()
+            setTimeout();
             setTimeout(window.location.reload, 3000);
         }
     }
 
     function update() {
+        ctxFirstLife.clearRect(0, 0, firstLife.width, firstLife.height);
+        ctxSecondLife.clearRect(0, 0, secondLife.width, secondLife.height);
+        ctxLastLife.clearRect(0, 0, lastLife.width, lastLife.height);
+        if (beer_missed_counter == 0) {
+            drawLastLife();
+            drawSecondLife();
+            drawFirstLife();
+        }
+        else if (beer_missed_counter == 1) {
+            drawLastLife();
+            drawSecondLife();
+        }
+        else if (beer_missed_counter == 2) {
+            drawLastLife();
+        }
+        
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         crate_x += crate_velocity;
         ctx.fillRect(crate_x, crate_y, 40, 20);
@@ -83,14 +110,52 @@ function startGame() {
         drawBeer();
     }
 
+    function drawLastLife() {
+        ctxLastLife.beginPath();
+        ctxLastLife.moveTo(60, 60);
+        ctxLastLife.lineTo(120, 60);
+        ctxLastLife.lineTo(120, 90);
+        ctxLastLife.lineTo(160, 90);
+        ctxLastLife.lineTo(160, 290);
+        ctxLastLife.lineTo(20, 290);
+        ctxLastLife.lineTo(20, 90);
+        ctxLastLife.lineTo(60, 90);
+        ctxLastLife.closePath();
+        ctxLastLife.fill();
+    }
+
+    function drawSecondLife() {
+        ctxSecondLife.beginPath();
+        ctxSecondLife.moveTo(60, 60);
+        ctxSecondLife.lineTo(120, 60);
+        ctxSecondLife.lineTo(120, 90);
+        ctxSecondLife.lineTo(160, 90);
+        ctxSecondLife.lineTo(160, 290);
+        ctxSecondLife.lineTo(20, 290);
+        ctxSecondLife.lineTo(20, 90);
+        ctxSecondLife.lineTo(60, 90);
+        ctxSecondLife.closePath();
+        ctxSecondLife.fill();
+    }
+
+    function drawFirstLife() {
+        ctxFirstLife.beginPath();
+        ctxFirstLife.moveTo(60, 60);
+        ctxFirstLife.lineTo(120, 60);
+        ctxFirstLife.lineTo(120, 90);
+        ctxFirstLife.lineTo(160, 90);
+        ctxFirstLife.lineTo(160, 290);
+        ctxFirstLife.lineTo(20, 290);
+        ctxFirstLife.lineTo(20, 90);
+        ctxFirstLife.lineTo(60, 90);
+        ctxFirstLife.closePath();
+        ctxFirstLife.fill();
+    }
+
     function writeResult() {
         ctxScore.clearRect(0, 0, scoreCanvas.width, scoreCanvas.height);
         ctxScore.font = "140px Algerian";
         ctxScore.fillText(beer_catched_counter.toString(), 0, 150, 100);
-
-        ctxMissed.clearRect(0, 0, scoreCanvas.width, scoreCanvas.height);
-        ctxMissed.font = "140px Algerian";
-        ctxMissed.fillText(beer_missed_counter.toString(), 0, 150, 100);
     }
 
     function checkCollision() {

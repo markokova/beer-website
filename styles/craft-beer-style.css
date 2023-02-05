@@ -1,0 +1,9 @@
+@import "styles.css";
+
+article img {
+    width: 100%;
+}
+
+header img{
+    width: 200px;
+}
