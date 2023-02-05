@@ -12,16 +12,10 @@ const ctxSecondLife = secondLife.getContext("2d");
 
 const firstLife = document.getElementById("first-life");
 const ctxFirstLife = firstLife.getContext("2d");
-/*
- pozvat funkciju za crtat pivo i nacrtat 3 piva kao tri zivota i onda kada se pivo promasi samo ctxFirstLife.clearRect()..
- */
+
 document.querySelector('#start-button').addEventListener('click', startGame);
 
-/*
- function stopTheGame() {
-    setTimeout(startGame, 300000);
-}
- */
+
 let game_flag = false;
 
 if (game_flag) {
